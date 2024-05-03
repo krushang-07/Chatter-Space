@@ -31,6 +31,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
       token: generatetoken(user._id),
     });
+    console.log("userCreated")
   } else {
     res.status(400);
     throw new Error("failed to create the user");
