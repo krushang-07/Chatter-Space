@@ -5,13 +5,11 @@ import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+//import { useHistory } from "react-router";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
-  const toast = useToast();
-  const history = useHistory();
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -20,6 +18,10 @@ const Signup = () => {
   const [pic, setPic] = useState();
   const [picLoading, setPicLoading] = useState(false);
 
+  const handleClick = () => setShow(!show);
+
+  const toast = useToast();
+  const history = useHistory();
   const submitHandler = async () => {
     setPicLoading(true);
     if (!name || !email || !password || !confirmpassword) {
@@ -101,8 +103,8 @@ const Signup = () => {
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "chat-app");
-      data.append("cloud_name", "piyushproj");
-      fetch("https://api.cloudinary.com/v1_1/piyushproj/image/upload", {
+      data.append("cloud_name", "krushang");
+      fetch("https://api.cloudinary.com/v1_1/krushang/image/upload", {
         method: "post",
         body: data,
       })
@@ -176,7 +178,7 @@ const Signup = () => {
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      <FormControl id="pic">
+      <FormControl id="pics">
         <FormLabel>Upload your Picture</FormLabel>
         <Input
           type="file"
@@ -199,3 +201,5 @@ const Signup = () => {
 };
 
 export default Signup;
+
+//POST https://api.cloudinary.com/v1_1/dqbqpgkoe/image/upload
