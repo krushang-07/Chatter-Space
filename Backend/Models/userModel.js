@@ -19,13 +19,29 @@ const userSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
+
+
+
+
+//bcrypt = hashing and compare(enterpass and already pass)
+
 userSchema.methods.matchPassword = async function (enteredpassword) {
   return await bcrypt.compare(enteredpassword, this.password);
 };
+
+
+
+//before a storing a data in db middlework as a pre save 
+
 userSchema.pre("save", async function (next) {
   if (!this.isModified) {
     next();
   }
+
+
+
+  //hashing done by hash and salt  
+  
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });

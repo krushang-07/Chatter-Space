@@ -25,10 +25,10 @@ function Homepage() {
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text fontSize="4xl" fontFamily="Work sans">
-          Chit-Chat
+        <Text fontSize="4xl" fontFamily="Work sans" fontWeight="bolder" align="center">
+          CHIT-CHAT
         </Text>
-        <Text>whatsapp banane ka tareeka thoda kazual hai</Text>
+        <Text align="center">whatsapp banane ka tareeka thoda kazual hai</Text>
       </Box>
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
         <Tabs isFitted variant="soft-rounded">

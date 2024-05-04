@@ -31,7 +31,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
       token: generatetoken(user._id),
     });
-    console.log("userCreated")
+    console.log("userCreated");
   } else {
     res.status(400);
     throw new Error("failed to create the user");
@@ -57,4 +57,17 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { registerUser, authUser };
+// /api/user?search=krushang
+const allUsers = asyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } }, //i case sensetive upper and lower   $regex = pattern matching
+          { email: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
+  const users = await User.find(keyword);
+  res.send(users);
+});
+module.exports = { registerUser, authUser, allUsers };
