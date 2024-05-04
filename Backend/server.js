@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
-app.use("/api/chats", chatRoutes);
+app.use("/api/chat", chatRoutes);
 // app.user(notfound);
 // app.user(errorhandler);
 const PORT = process.env.PORT || 5000;
