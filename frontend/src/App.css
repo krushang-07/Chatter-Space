@@ -6,4 +6,7 @@
   background-image: url("./background.png");
   background-position: center;
   background-size: cover;
+  font-family: "Oxygen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }

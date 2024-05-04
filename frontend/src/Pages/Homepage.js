@@ -25,14 +25,17 @@ function Homepage() {
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text fontSize="4xl" fontFamily="Work sans" fontWeight="bolder" align="center">
-          CHIT-CHAT
+        <Text fontSize="4xl" fontFamily="Work sans" fontWeight="bolder" align="center" font-family= "Poetsen One sans-serif"
+  font-weight= "400"
+  font-style="normal">
+          
+          Chatter-Space
         </Text>
         <Text align="center">whatsapp banane ka tareeka thoda kazual hai</Text>
       </Box>
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
         <Tabs isFitted variant="soft-rounded">
-          <TabList mb="1em">
+          <TabList mb="1em" colorScheme="blue">
             <Tab>Login</Tab>
             <Tab>Sign Up</Tab>
           </TabList>
