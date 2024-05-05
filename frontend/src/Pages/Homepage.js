@@ -8,11 +8,21 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-// import { useEffect } from "react";
-// import { useHistory } from "react-router";
+import { useEffect } from "react";
+import { useHistory } from "react-router";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
+//import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+//import { useEffect } from "react";
 function Homepage() {
+  const history = useHistory();
+
+  useEffect(() => {
+    const { user } = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (user) { history.push("/chats"); }
+  }, [history]);
+
   return (
     <Container maxW="xl" centerContent>
       <Box
@@ -25,10 +35,15 @@ function Homepage() {
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text fontSize="4xl" fontFamily="Work sans" fontWeight="bolder" align="center" font-family= "Poetsen One sans-serif"
-  font-weight= "400"
-  font-style="normal">
-          
+        <Text
+          fontSize="4xl"
+          fontFamily="Work sans"
+          fontWeight="bolder"
+          align="center"
+          font-family="Poetsen One sans-serif"
+          font-weight="400"
+          font-style="normal"
+        >
           Chatter-Space
         </Text>
         <Text align="center">whatsapp banane ka tareeka thoda kazual hai</Text>
@@ -54,3 +69,29 @@ function Homepage() {
 }
 
 export default Homepage;
+
+//what is history with code
+
+// In React, history and useHistory are commonly used in combination with React Router for navigation. They provide a way to interact with the browser's history and perform navigation programmatically. Here's an example of how to use useHistory:
+
+// import React, { useState, useEffect } from 'react';
+
+// function MyComponent() {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     // This code runs after every render
+//     document.title = `You clicked ${count} times`;
+//   }, [count]); // Only re-run the effect if count changes
+
+//   return (
+//     <div>
+//       <p>You clicked {count} times</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Click me
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default MyComponent;

@@ -5,8 +5,8 @@ import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-//import { useHistory } from "react-router";
+//import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
