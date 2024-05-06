@@ -17,10 +17,19 @@ import Signup from "../components/Authentication/Signup";
 function Homepage() {
   const history = useHistory();
 
-  useEffect(() => {
-    const { user } = JSON.parse(localStorage.getItem("userInfo"));
+  // useEffect(() => {
+  //   const { user } = JSON.parse(localStorage.getItem("userInfo"));
 
-    if (user) { history.push("/chats"); }
+  //   if (user) { history.push("/chats"); }
+  // }, [history]);
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      const { user } = JSON.parse(userInfo);
+      if (user) {
+        history.push("/chats");
+      }
+    }
   }, [history]);
 
   return (

@@ -8,7 +8,7 @@ import { Avatar } from "@chakra-ui/avatar";
 import { ChatState } from "../../Context/ChatProvider";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import ProfileModel from "./ProfileModel";
-//import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
@@ -17,10 +17,21 @@ const SideDrawer = () => {
   const [loadingchat, setLoadingChat] = useState();
 
   const { user } = ChatState();
-  // const history = useHistory();
+  const history = useHistory();
+  const logoutHandler = () => {
+    localStorage.removeItem("userInfo");
+    history.push("/");
+  };
   // const logoutHandler = () => {
-  //   JSON.parse(localStorage.removeItem("userInfo"));
-  //   history.push("/");
+  //   const userInfo = localStorage.getItem("userInfo");
+  //   if (userInfo) {
+  //     // Check if userInfo is not undefined before parsing
+  //     const { user } = JSON.parse(userInfo);
+  //     if (user) {
+  //       localStorage.removeItem("userInfo");
+  //       history.push("/");
+  //     }
+  //   }
   // };
   return (
     <>
@@ -63,7 +74,7 @@ const SideDrawer = () => {
               <ProfileModel user={user}>
                 <MenuItem>My Profile</MenuItem>
               </ProfileModel>
-              <MenuItem>Logout</MenuItem>
+              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </MenuList>
           </Menu>
         </div>
