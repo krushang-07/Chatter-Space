@@ -49,7 +49,7 @@ const MyChat = () => {
       alignItems="center"
       p={3}
       bg="white"
-      w={{ base: "100%", md: "25%" }}
+      w={{ base: "100%", md: "31.5%" }}
       borderRadius="lg"
       borderWidth="1px"
       height="full"
