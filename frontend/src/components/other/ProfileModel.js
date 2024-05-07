@@ -26,15 +26,18 @@ const ProfileModal = ({ user, children }) => {
       )}
       <Modal size="lg" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
-        <ModalContent h="410px">
-          <ModalHeader
-            fontSize="40px"
-            fontFamily="Work sans"
+        <ModalContent h="410px" borderRadius="40px">
+          {/* <ModalHeader
+            fontSize="30px"
+            // fontFamily="Work sans"
+            // font-family= "Oxygen"
+            // font-weight="900"
+            // font-style="normal"
             display="flex"
             justifyContent="center"
           >
             {user.name}
-          </ModalHeader>
+          </ModalHeader> */}
           <ModalCloseButton />
           <ModalBody
             display="flex"
@@ -43,16 +46,29 @@ const ProfileModal = ({ user, children }) => {
             justifyContent="space-between"
           >
             <Image
-              borderRadius="full"
-              boxSize="150px"
+              borderRadius="70px"
+              boxSize="170px"
               src={user.pic}
               alt={user.name}
             />
+              <ModalHeader
+            fontSize="35px"
+            // fontFamily="Work sans"
+            // font-family= "Oxygen"
+            // font-weight="900"
+            // font-style="normal"
+            display="flex"
+            justifyContent="center"
+          >
+            {user.name}
+            </ModalHeader>
+            
             <Text
-              fontSize={{ base: "28px", md: "30px" }}
+              fontSize={{ base: "20px", md: "30px" }}
               fontFamily="Work sans"
+              fontWeight="bolder"
             >
-              Email:{user.email}
+              Email : {user.email}
             </Text>
           </ModalBody>
           <ModalFooter>
