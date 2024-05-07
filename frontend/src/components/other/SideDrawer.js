@@ -292,8 +292,8 @@ function SideDrawer() {
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work sans">
-          Talk-A-Tive
+        <Text fontSize="3xl" fontWeight="bolder" fontFamily="Work sans">
+          Chatter-Space
         </Text>
         <div>
           <Menu>
