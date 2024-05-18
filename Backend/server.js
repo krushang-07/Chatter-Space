@@ -7,16 +7,15 @@ const colors = require("colors");
 const app = express();
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoute");
+const messageRoutes = require("./routes/messageRoute");
 app.use(express.json());
 dotenv.config();
 connectDB();
 
-app.get("/", (req, res) => {
-  res.send("heyy i am krushang savaliya");
-});
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/message", messageRoutes);
 // app.user(notfound);
 // app.user(errorhandler);
 const PORT = process.env.PORT || 5000;

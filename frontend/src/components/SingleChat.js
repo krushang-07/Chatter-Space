@@ -11,6 +11,7 @@ import ProfileModal from "../components/other/ProfileModel";
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat, setSelectedChat } = ChatState();
   const [messages, setMessages] = useState([]);
+  
   return (
     <>
       {selectedChat ? (
