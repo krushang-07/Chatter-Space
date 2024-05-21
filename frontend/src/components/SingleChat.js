@@ -8,15 +8,19 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { getSender, getSenderFull } from "../config/ChatLogics";
 import ProfileModal from "../components/other/ProfileModel";
 import axios from "axios";
-import "./styles.css"
+import "./styles.css";
 import UpdateGroupChatModal from "./other/UpdateGroupChatModal";
 import ScrollableChat from "../components/ScrollableChat";
+import io from "socket.io-client";
 
+const ENDPOINT = "http://localhost:5000";
+var socket, selectedChatCompare;
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat, setSelectedChat } = ChatState();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
+  const [socketConnected, setSocketConnected] = useState(false);
   const toast = useToast();
 
   const fetchMessages = async () => {
@@ -38,6 +42,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       console.log(messages);
       setMessages(data);
       setLoading(false);
+
+      socket.emit("join chat", selectedChat._id);
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -52,9 +58,25 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   useEffect(() => {
     fetchMessages();
-
-    // eslint-disable-next-line
+    selectedChatCompare = selectedChat;
   }, [selectedChat]);
+  useEffect(() => {
+    socket = io(ENDPOINT);
+    socket.emit("setup", user);
+    socket.on("connected", () => setSocketConnected(true));
+  }, []);
+
+  useEffect(() => {
+    socket.on("message recieved", (newMessageRecieved) => {
+      if (
+        !selectedChatCompare || // if chat is not selected or doesn't match current chat
+        selectedChatCompare._id !== newMessageRecieved.chat._id
+      ) {
+      } else {
+        setMessages([...messages, newMessageRecieved]);
+      }
+    });
+  });
 
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
@@ -75,6 +97,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           config
         );
         //  console.log(data);
+        socket.emit("new message", data);
         setMessages([...messages, data]);
       } catch (error) {
         toast({
@@ -153,8 +176,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin="auto"
               />
             ) : (
-                <div className="message">
-                  <ScrollableChat messages={messages} />
+              <div className="message">
+                <ScrollableChat messages={messages} />
               </div>
             )}
             <FormControl
