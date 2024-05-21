@@ -7,8 +7,10 @@ import { Box, Text } from "@chakra-ui/layout";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { getSender, getSenderFull } from "../config/ChatLogics";
 import ProfileModal from "../components/other/ProfileModel";
-//import { useToast } from "@chakra-ui/react";
 import axios from "axios";
+import "./styles.css"
+import UpdateGroupChatModal from "./other/UpdateGroupChatModal";
+import ScrollableChat from "../components/ScrollableChat";
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat, setSelectedChat } = ChatState();
@@ -28,13 +30,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       };
 
       setLoading(true);
-     
+
       const { data } = await axios.get(
         `/api/message/${selectedChat._id}`,
         config
       );
       console.log(messages);
-      setMessages(data);;
+      setMessages(data);
       setLoading(false);
     } catch (error) {
       toast({
@@ -123,11 +125,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ) : (
                 <>
                   {selectedChat.chatName.toUpperCase()}
-                  {/* <UpdateGroupChatModal
+                  <UpdateGroupChatModal
                     fetchMessages={fetchMessages}
                     fetchAgain={fetchAgain}
                     setFetchAgain={setFetchAgain}
-                  /> */}
+                  />
                 </>
               ))}
           </Text>
@@ -151,24 +153,25 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin="auto"
               />
             ) : (
-              <div>
-                <FormControl
-                  onKeyDown={sendMessage}
-                  id="first-name"
-                  isRequired
-                  mt={3}
-                >
-                  {" "}
-                  <Input
-                    variant="filled"
-                    bg="#E0E0E0"
-                    placeholder="Enter a message.."
-                    value={newMessage}
-                    onChange={typingHandler}
-                  />
-                </FormControl>
+                <div className="message">
+                  <ScrollableChat messages={messages} />
               </div>
             )}
+            <FormControl
+              onKeyDown={sendMessage}
+              id="first-name"
+              isRequired
+              mt={3}
+            >
+              {" "}
+              <Input
+                variant="filled"
+                bg="#E0E0E0"
+                placeholder="Enter a message.."
+                value={newMessage}
+                onChange={typingHandler}
+              />
+            </FormControl>
           </Box>
         </>
       ) : (
