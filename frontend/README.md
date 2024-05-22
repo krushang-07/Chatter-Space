@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Chatter-Space App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Chatter-Space app are based on Chat-app and created using MERN-Stack!!
 
-## Available Scripts
+# purpose
 
-In the project directory, you can run:
+Creating a chat app using the MERN stack (MongoDB, Express.js, React, Node.js) is to provide a scalable, real-time communication platform with a modern, responsive user interface, leveraging the strengths of each technology for seamless performance and a robust user experience
 
-### `npm start`
+# Language
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+HTML
+Chakra-UI for UI Design
+CSS
+ReactJS
+ExpressJS
+NodeJS
+MongoDB
+Socket.io
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Functionality
 
-### `npm test`
+1. User Authentication and Authorization 🔐:
+   Chatter-Space ensures secure access with JWT tokens, verifying users before they can interact with the app. This robust security measure creates a safe user environment.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Password Hashing with Bcrypt 🔒:
+   Passwords are protected using bcrypt hashing, adding an extra layer of security to keep user data safe from breaches.
 
-### `npm run build`
+3. One-on-One Messaging 💬:
+   Users can engage in private, direct conversations with others, enabling intimate and secure interactions within the app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Group Chats 👥:
+   Chatter-Space allows users to participate in dynamic group chats, where multiple people can communicate in a single thread. Users can create, rename, and manage groups for versatile discussions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Profile Viewing 👤:
+   Users can view their own profiles as well as the profiles of others, including profile photos and relevant information, enhancing the social aspect of the app.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. Real-Time Notifications 🔔:
+   The app features a real-time notification system that alerts users to new messages, group activities, and other important updates, displayed with badge icons for easy visibility.
 
-### `npm run eject`
+7. User Search 🔍:
+   Chatter-Space includes a powerful search functionality, enabling users to quickly find others through query-based searches, enhancing connectivity within the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+8. Real-Time Communication with Socket.io ⚡:
+   Real-time messaging is powered by Socket.io, ensuring that conversations happen instantly and smoothly, providing a seamless chat experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+9. Profile Photo Upload and Management 📸:
+   During sign-up, users can upload a profile photo, allowing them to personalize their profiles and enhance their presence within the app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+10. Group Management 🛠️:
+    Users can manage their groups effectively by renaming them, adding new members, and removing existing ones, ensuring active and relevant group conversations.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+Install Chatter-Space with npm
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  npx create-react-app Chatter-Space
+  npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Screenshots
 
-### Code Splitting
+\*Sign-up page:
+![Sign-up](https://github.com/krushang-07/Chatter-Space/assets/153190903/4399ce45-b36f-46dd-93cb-cd5cc0de1352)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+\*Login page:
+![Login](https://github.com/krushang-07/Chatter-Space/assets/153190903/5a1b8cf8-ccc0-4573-8e15-86dd78cdb37c)
 
-### Analyzing the Bundle Size
+\*After login:
+![complete login](https://github.com/krushang-07/Chatter-Space/assets/153190903/7b7f3c08-d108-4af9-a2b6-79008be15eda)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+\*Admin Profile Dashboard:
+![Profile dashboard](https://github.com/krushang-07/Chatter-Space/assets/153190903/7d12b049-9f0e-4034-b2da-ac8b0097bc10)
 
-### Making a Progressive Web App
+\*Search user:
+![Search user](https://github.com/krushang-07/Chatter-Space/assets/153190903/f3af0f3f-caac-4cf2-85da-8d7a35b89b5b)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+\*User Profile Dashboard:
+![Search user profile](https://github.com/krushang-07/Chatter-Space/assets/153190903/e40f7416-0f09-47ca-b160-718c6cfcfd87)
 
-### Advanced Configuration
+\*One on One chat:
+![one on one chat](https://github.com/krushang-07/Chatter-Space/assets/153190903/5ef5d765-782c-419c-b8cf-297146461158)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+\*Creating group:
+![creating group](https://github.com/krushang-07/Chatter-Space/assets/153190903/53a73b52-49b4-4b0a-9db9-2caea3cf05f9)
 
-### Deployment
+\*Group Chat:
+![group chat](https://github.com/krushang-07/Chatter-Space/assets/153190903/b645a151-5bb4-47c4-95bb-d8e9f8cb2b61)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+\*Real Time Notification:
+![Real time notification](https://github.com/krushang-07/Chatter-Space/assets/153190903/b00fa9ce-5ccb-4dad-83f6-f0b59593d102)
 
-### `npm run build` fails to minify
+## Run Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clone the project
+
+````bash
+  git clone https://github.com/krushang-07/Chatter-Space.git
+
+Go to the project directory
+
+```bash
+  cd Chatter-Space
+````
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```

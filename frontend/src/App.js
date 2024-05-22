@@ -1,14 +1,14 @@
 import "./App.css";
 import { Route } from "react-router-dom";
 import ChatPage from "./Pages/ChatPage";
-import HomePage from "./Pages/HomePage";
+import Homepage from "./Pages/Homepage";
 import ChatProvider from "./Context/ChatProvider";
 
 function App() {
   return (
     <ChatProvider>
       <div className="App">
-        <Route path="/" component={HomePage} exact />
+        <Route path="/" component={Homepage} exact />
         <Route path="/chats" component={ChatPage} />
       </div>
     </ChatProvider>
@@ -16,3 +16,4 @@ function App() {
 }
 
 export default App;
+ 
