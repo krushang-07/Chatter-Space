@@ -8,6 +8,7 @@ const app = express();
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoute");
 const messageRoutes = require("./routes/messageRoute");
+const path = require("path");
 app.use(express.json());
 dotenv.config();
 connectDB();
@@ -15,8 +16,26 @@ connectDB();
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
-// app.user(notfound);
-// app.user(errorhandler);
+
+//-----------------------Deployment--------------------
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+  })
+  
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running Successfully");
+  });
+}
+
+
+
+//-----------------------Deployment--------------------
+
 const PORT = process.env.PORT || 5000;
 const server = app.listen(
   5000,

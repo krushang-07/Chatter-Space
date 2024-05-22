@@ -12,8 +12,7 @@ import { useEffect } from "react";
 import { useHistory } from "react-router";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
-//import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-//import { useEffect } from "react";
+import "../i.css";
 function Homepage() {
   const history = useHistory();
 
@@ -55,7 +54,11 @@ function Homepage() {
         >
           Chatter-Space
         </Text>
-        <Text align="center">whatsapp banane ka tareeka thoda kazual hai</Text>
+        <marquee direction="right">
+          <Text align="center">
+            whatsapp banane ka tareeka thoda kazual hai
+          </Text>
+        </marquee>
       </Box>
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
         <Tabs isFitted variant="soft-rounded">

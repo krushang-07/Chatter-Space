@@ -53,7 +53,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
-     setUser(data);
+      setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");
@@ -70,7 +70,7 @@ const Login = () => {
     }
   };
   return (
-    <VStack spacing="10px" >
+    <VStack spacing="10px">
       <FormControl id="email" isRequired>
         <FormLabel>Email Address</FormLabel>
         <Input
@@ -116,6 +116,8 @@ const Login = () => {
       >
         Get Guest User Credentials
       </Button>
+      <hr />
+      <h5>Created By Krushang savaliya</h5>
     </VStack>
   );
 };

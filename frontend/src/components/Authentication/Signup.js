@@ -196,6 +196,8 @@ const Signup = () => {
       >
         Sign Up
       </Button>
+      <hr />
+      <h5>Created By Krushang savaliya</h5>
     </VStack>
   );
 };
