@@ -12,8 +12,8 @@ import "./styles.css";
 import UpdateGroupChatModal from "./other/UpdateGroupChatModal";
 import ScrollableChat from "../components/ScrollableChat";
 import io from "socket.io-client";
-import Lottie from "react-lottie"
-import animationData from "../animations/typing.json"
+import Lottie from "react-lottie";
+import animationData from "../animations/typing.json";
 
 const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
@@ -219,13 +219,17 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               isRequired
               mt={3}
             >
-              {isTyping ? <div>
-                <Lottie
-                  options={defaultOptions}
-                  width="70"
-                  style={{marginBottom: 15,marginLeft: 0}}
-                />
-              </div>:(<></>)}
+              {isTyping ? (
+                <div>
+                  <Lottie
+                    options={defaultOptions}
+                    width={70}
+                    style={{ marginBottom: 15, marginLeft: 0 }}
+                  />
+                </div>
+              ) : (
+                <></>
+              )}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
